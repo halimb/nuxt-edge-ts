@@ -1,14 +1,23 @@
 <template>
-  <div>{{helloWorld}}</div>
+  <div
+  @click="
+    myFunc()
+    myVar = 42
+  "
+  ></div>
 </template>
 
 <script lang="ts">
-export default {
-  computed: {
-    // Should cause a typescript error
-    helloWorld(): number {
-      return "Hello world"
+import Vue from "vue"
+
+export default Vue.extend({
+  data: () => {
+    return {
+      myVar: 0
     }
+  },
+  methods: {
+    myFunc() {}
   }
-}
+})
 </script>
